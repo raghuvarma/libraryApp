@@ -7,7 +7,7 @@
 
   <p>
     <%= f.label :book_id %><br>
-    <%= f.collection_select :book_id, Book.all, :id, :name, :include_blank => true  %>
+    <%= f.collection_select :book_id, Book.where(:available => true), :id, :name, :include_blank => true  %>
   </p>
  
   <p>
