@@ -1,0 +1,18 @@
+<table>
+	<tr>
+		<th><strong>Student Id</strong></th>
+		<th><strong>User Id</strong></th>
+		<th>Actions</th>
+	</tr>
+	<% @student_books.each do |sb| %>
+		<tr>
+			<td><%= sb.student_id %></td>
+			<td><%= sb.book_id %></td>
+			<td><%= link_to 'Edit', edit_book_management_path(sb.id) %>
+				<%= link_to 'Destroy', book_management_path(sb), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "New student", new_book_management_path %>
