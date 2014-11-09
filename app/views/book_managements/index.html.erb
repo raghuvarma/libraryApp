@@ -2,17 +2,20 @@
 	<tr>
 		<th><strong>Student Id</strong></th>
 		<th><strong>User Id</strong></th>
+		<th><strong>Issued On</strong></th>
+		<th><strong>Overdue</strong></th>
 		<th>Actions</th>
 	</tr>
 	<% @student_books.each do |sb| %>
 		<tr>
-			<td><%= sb.student_id %></td>
-			<td><%= sb.book_id %></td>
-			<td><%= link_to 'Edit', edit_book_management_path(sb.id) %>
-				<%= link_to 'Destroy', book_management_path(sb), method: :delete, data: { confirm: 'Are you sure?' } %>
-			</td>
+			<td><%= sb.student.name %></td>
+			<td><%= sb.book.name %></td>
+			<td><%= sb.created_at.strftime("%d-%m-%y %H:%M") %></td>
+			<td><%= sb.overdue.to_i %> <% if sb.overdue.to_i >= 2 %> Days <% else %> Day <% end %> </td>
+			<td><%= link_to 'Edit', edit_book_management_path(sb.id) %>	</td>
 		</tr>
 	<% end %>
 </table>
 
-<%= link_to "New student", new_book_management_path %>
+<%= link_to "New student", new_book_management_path %> <br/>
+<%= link_to "Home", root_path %>
