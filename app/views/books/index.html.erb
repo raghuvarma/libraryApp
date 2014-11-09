@@ -1,0 +1,21 @@
+<table>
+	<tr>
+		<th><strong>Name</strong></th>
+		<th><strong>Author</strong></th>
+		<th><strong>No of Copies</strong></th>
+		<th><strong>Available</strong></th>
+		<th>Actions</th></tr>
+	<% @books.each do |b| %>
+		<tr>
+			<td><%= b.name %></td>
+			<td><%= b.author %></td>
+			<td><%= b.no_of_copies %></td>
+			<td><%= b.available %></td>
+			<td><%= link_to 'Back', books_path %>| <%= link_to 'Edit', edit_book_path(b.id) %>
+				<%= link_to 'Destroy', book_path(b), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "New student", new_book_path %>
