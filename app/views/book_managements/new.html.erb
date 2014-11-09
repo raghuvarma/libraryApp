@@ -1,0 +1,18 @@
+<h2>New Issued Books</h2>
+<%= form_for :student_book, url: book_managements_path(@student_book) do |f| %>
+  <p>
+    <%= f.label :student_id %><br>
+    <%= f.collection_select :student_id, Student.all, :id, :name, :include_blank => true  %>
+  </p>
+
+  <p>
+    <%= f.label :book_id %><br>
+    <%= f.collection_select :book_id, Book.where(:available => true), :id, :name, :include_blank => true  %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back', book_managements_path %>
