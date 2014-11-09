@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20141109052409) do
   create_table "books", force: true do |t|
     t.string   "name"
     t.string   "author"
-    t.integer  "no_of_copies"
-    t.boolean  "available"
+    t.integer  "no_of_copies", default: 0
+    t.boolean  "available",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

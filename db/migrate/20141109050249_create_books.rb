@@ -3,8 +3,8 @@ class CreateBooks < ActiveRecord::Migration
     create_table :books do |t|
       t.string :name
       t.string :author
-      t.integer :no_of_copies
-      t.boolean :available
+      t.integer :no_of_copies, :default => 0
+      t.boolean :available, :default => false
 
       t.timestamps
     end
