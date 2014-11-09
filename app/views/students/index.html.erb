@@ -1,15 +1,16 @@
-<table>
+<h2>All students</h2>
+<table class="table table-bordered table-hover table-striped table-responsive">
 	<tr>
 		<th><strong>Name</strong></th><th>Actions</th></tr>
 	<% @students.each do |s| %>
 		<tr>
 			<td><%= s.name %></td>
-			<td><%= link_to 'Back', students_path %>| <%= link_to 'Edit', edit_student_path(s.id) %>
+			<td><%= link_to 'Edit', edit_student_path(s.id) %> | 
 				<%= link_to 'Destroy', student_path(s), method: :delete, data: { confirm: 'Are you sure?' } %>
 			</td>
 		</tr>
 	<% end %>
 </table>
 
-<%= link_to "New student", new_student_path %> <br/>
-<%= link_to "Home", root_path %>
+<%= link_to "New student", new_student_path, :class => "btn btn-info btn-sm" %> 
+<%= link_to "Home", root_path, :class => "btn btn-info btn-sm" %>
