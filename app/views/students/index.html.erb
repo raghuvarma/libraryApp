@@ -1,8 +1,14 @@
 <table>
-<th><td><strong>Name</strong></td></th>
-<% @students.each do |s| %>
-<tr>
-	<td><%= s.name %></td>
-</tr>
-<% end %>
+	<tr>
+		<th><strong>Name</strong></th><th>Actions</th></tr>
+	<% @students.each do |s| %>
+		<tr>
+			<td><%= s.name %></td>
+			<td><%= link_to 'Back', students_path %>| <%= link_to 'Edit', edit_student_path(s.id) %>
+				<%= link_to 'Destroy', student_path(s), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+	<% end %>
 </table>
+
+<%= link_to "New student", new_student_path %>
