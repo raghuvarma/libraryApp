@@ -4,6 +4,8 @@
 		<th><strong>Student Id</strong></th>
 		<th><strong>User Id</strong></th>
 		<th><strong>Issued On</strong></th>
+		<th><strong>Sumitted Date</strong></th>
+		<th><strong>Days To Left</strong></th>
 		<th><strong>Overdue</strong></th>
 		<th>Actions</th>
 	</tr>
@@ -12,7 +14,9 @@
 			<td><%= sb.student.name %></td>
 			<td><%= sb.book.name %></td>
 			<td><%= sb.created_at.strftime("%d-%m-%y %H:%M") %></td>
-			<td><%= sb.overdue.to_i %> <% if sb.overdue.to_i >= 2 %> Days <% else %> Day <% end %> </td>
+			<td><%= sb.overduedate.strftime("%d-%m-%y %H:%M") %></td>
+			<td><%= sb.overduecompleted %></td>
+			<td><%= sb.daystoleft %></td>
 			<td><%= link_to 'Edit', edit_book_management_path(sb.id) %>	</td>
 		</tr>
 	<% end %>

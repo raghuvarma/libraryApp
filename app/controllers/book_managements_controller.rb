@@ -11,16 +11,19 @@ class BookManagementsController < ApplicationController
 	def create
 		@student_book = StudentBook.new(student_book)
  
-	  @student_book.save
-	  book = Book.find(@student_book.book_id)
-	  current_books = book.no_of_copies
-	  if(current_books > 1)
-	  	book.update(:no_of_copies => current_books-1)
-	  else
-	  	book.update(:no_of_copies => current_books-1, :available => false)
-	  end
+	  if @student_book.save
+		  book = Book.find(@student_book.book_id)
+		  current_books = book.no_of_copies
+		  if(current_books > 1)
+		  	book.update(:no_of_copies => current_books-1)
+		  else
+		  	book.update(:no_of_copies => current_books-1, :available => false)
+		  end
 
-	  redirect_to book_managements_path
+		  redirect_to book_managements_path
+		else
+			render "new"
+		end
 
 	end
 
@@ -37,14 +40,14 @@ class BookManagementsController < ApplicationController
 	 
 	  if @student_book.update(student_book)
 	  	book = Book.find(@student_book.book_id)
-	  current_books = book.no_of_copies
+	  	current_books = book.no_of_copies
 	  if(current_books > 1)
 	  	book.update(:no_of_copies => current_books-1)
 	  else
 	  	book.update(:no_of_copies => current_books-1, :available => false)
 	  end
 	  
-	    redirect_to @book_management
+	    redirect_to book_managements_path
 	  else
 	    render 'edit'
 	  end

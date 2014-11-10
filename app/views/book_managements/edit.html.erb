@@ -7,7 +7,7 @@
 
   <p>
     <%= f.label :book_id %><br>
-    <%= f.collection_select :book_id, Book.all, :id, :name  %>
+    <%= f.collection_select :book_id, Book.where("available = ? AND no_of_copies >= ?", true, 1), :id, :name, :include_blank => true  %>
   </p>
  
   <p>
