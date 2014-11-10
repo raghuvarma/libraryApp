@@ -38,7 +38,17 @@ class BookManagementsController < ApplicationController
 
 	def update
 	  @student_book = StudentBook.find(params[:id])
-	 
+
+	  old_book_id =  @student_book.book_id
+	 	old_book = Book.find(old_book_id)
+	 	old_books_count = old_book.no_of_copies
+
+	 	if(old_books_count > 1)
+	  	old_book.update(:no_of_copies => old_books_count+1)
+	  else
+	  	old_book.update(:no_of_copies => old_books_count+1, :available => true)
+	  end
+
 	  if @student_book.update(student_book)
 	  	book = Book.find(@student_book.book_id)
 	  	current_books = book.no_of_copies

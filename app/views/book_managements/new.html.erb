@@ -1,3 +1,14 @@
+<br/><% if @student_book.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@student_book.errors.count, "error") %> prohibited
+      this Book from being saved:</h2>
+    <ul>
+    <% @student_book.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <h2>New Issued Books</h2>
 <%= form_for :student_book, url: book_managements_path(@student_book) do |f| %>
   <p>
