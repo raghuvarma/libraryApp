@@ -2,7 +2,7 @@
     <div class="page_info">
       <%= page_entries_info @student_books %>
     </div>
-    <%= will_paginate @student_books, previous_label:h("<"), next_label:h(">"), :container => false %>
+    <%= will_paginate @student_books, previous_label:h("<"), next_label:h(">"), :container => false, renderer: BootstrapPagination::Rails %>
  </div>
 <h2>List Of All Books Management</h2>
 <table class="table table-bordered table-hover table-striped table-responsive">
@@ -32,7 +32,7 @@
     <div class="page_info">
       <%= page_entries_info @student_books %>
     </div>
-    <%= will_paginate @student_books, previous_label:h("<"), next_label:h(">"), :container => false %>
+    <%= will_paginate @student_books, previous_label:h("<"), next_label:h(">"), :container => false, renderer: BootstrapPagination::Rails %>
  </div><br /><br/>
 
 <%= link_to "New Book Management", new_book_management_path, :class => "btn btn-info btn-sm" %> 

@@ -2,7 +2,7 @@
     <div class="page_info">
       <%= page_entries_info @books %>
     </div>
-    <%= will_paginate @books, previous_label:h("<"), next_label:h(">"), :container => false %>
+    <%= will_paginate @books, previous_label:h("<"), next_label:h(">"), :container => false, renderer: BootstrapPagination::Rails %>
  </div>
 
 <h2>All Books</h2>
@@ -31,7 +31,7 @@
     <div class="page_info">
       <%= page_entries_info @books %>
     </div>
-    <%= will_paginate @books, previous_label:h("<"), next_label:h(">"), :container => false %>
+    <%= will_paginate @books, previous_label:h("<"), next_label:h(">"), :container => false, renderer: BootstrapPagination::Rails %>
  </div>
 
 
