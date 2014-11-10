@@ -7,8 +7,8 @@
 <h2>List Of All Books Management</h2>
 <table class="table table-bordered table-hover table-striped table-responsive">
 	<tr>
-		<th><strong>Student Id</strong></th>
-		<th><strong>User Id</strong></th>
+		<th><strong>Student Name</strong></th>
+		<th><strong>Book Name</strong></th>
 		<th><strong>Issued On</strong></th>
 		<th><strong>Sumitted Date</strong></th>
 		<th><strong>Days To Left</strong></th>
@@ -33,9 +33,10 @@
       <%= page_entries_info @student_books %>
     </div>
     <%= will_paginate @student_books, previous_label:h("<"), next_label:h(">"), :container => false, renderer: BootstrapPagination::Rails %>
- </div><br /><br/>
+ </div>
 
 <%= link_to "New Book Management", new_book_management_path, :class => "btn btn-info btn-sm" %> 
 <%= link_to "Home", root_path, :class => "btn btn-info btn-sm" %>
+<br/><br/>
 
 
