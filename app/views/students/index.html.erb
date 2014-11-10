@@ -1,3 +1,10 @@
+<br/><div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @students %>
+    </div>
+    <%= will_paginate @students, previous_label:h("<"), next_label:h(">"), :container => false %>
+ </div>
+
 <h2>All students</h2>
 <table class="table table-bordered table-hover table-striped table-responsive">
 	<tr>
@@ -11,6 +18,12 @@
 		</tr>
 	<% end %>
 </table>
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @students %>
+    </div>
+    <%= will_paginate @students, previous_label:h("<"), next_label:h(">"), :container => false %>
+ </div><br/><br/>
 
 <%= link_to "New student", new_student_path, :class => "btn btn-info btn-sm" %> 
 <%= link_to "Home", root_path, :class => "btn btn-info btn-sm" %>

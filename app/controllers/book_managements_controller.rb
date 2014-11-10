@@ -1,7 +1,8 @@
 class BookManagementsController < ApplicationController
 
 	def index
-		@student_books = StudentBook.order("created_at desc").all
+		@student_books = StudentBook.order("updated_at asc").all
+		@student_books = @student_books.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def new
